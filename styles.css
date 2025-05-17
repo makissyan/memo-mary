@@ -1,0 +1,147 @@
+body {
+    font-family: sans-serif;
+    background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    max-width: 1024px;
+    width: 100%;
+    /* height: 100%; */
+    padding: 4px;
+}
+
+/* .settings {
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+} */
+
+.settings {
+    animation: pop 0.7s ease-in-out forwards alternate;
+    display: flex;
+    flex-direction: column; /* Ось головне */
+    gap: 5px;               /* Відстань між елементами */
+    align-items: center; /* Вирівнювання елементів по лівому краю */
+    margin-bottom: 20px;
+}
+
+.settings label,
+.settings select,
+.settings input,
+.settings button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.card {
+    width: 65%;
+    aspect-ratio: 1 / 1; /* Квадратна форма */
+    perspective: 800px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #b2ebf2;
+}
+
+.card-back img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.hidden {
+    display: none;
+}
+
+#fireworks {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(205, 211, 247, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#fireworks.hidden {
+    display: none;
+}
+
+.fireworks-text {
+    color: #fff;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+.win-gif {
+    animation: pop 1.0s ease-in-out forwards alternate;
+    max-height: 60%;
+    width: auto;
+    align-items: center;
+}
+
+@keyframes pop {
+    from { transform: scale(0.2); }
+    to { transform: scale(1.0); }
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* за всіма іншими елементами */
+    pointer-events: none; /* щоб не заважав клікам */
+}
