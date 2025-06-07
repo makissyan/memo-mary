@@ -98,8 +98,6 @@ function handleCardClick() {
         const [card1, card2] = flippedCards;
         const match = card1.dataset.value === card2.dataset.value;
 
-        console.log(document.getElementById("hard-mode").checked);
-
         if (!match) {
             lock = true;
             setTimeout(() => {
@@ -107,7 +105,6 @@ function handleCardClick() {
                     // В hard mode перевертаємо всі відкриті картки
                     document.querySelectorAll(".card.flipped").forEach(card => {
                         card.classList.remove("flipped");
-                        console.log("FLIP ALL!!!")
                     });
                 } else {
                     card1.classList.remove("flipped");
