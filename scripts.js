@@ -29,7 +29,11 @@ const allImages = [
     'img/1.png',
     'img/1559859056chase-paw-patrol-clipart-png-10.png',
     'img/fa40eb0049cede8a9bdf294a141dbd0d.png',
-    'img/paw-sup22-grp-001-cgi-skye-no-cable_ver_1.png'
+    'img/paw-sup22-grp-001-cgi-skye-no-cable_ver_1.png',
+    'img/imageMarshall.png',
+    'img/png-transparent-cocomelon-cartoon-pig-charechter.png',
+    'img/cocomelon-monkey-png-12.png',
+    'img/Cocomelon-PNG-Image.png'
 ];
 
 
