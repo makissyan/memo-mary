@@ -26,7 +26,10 @@ const allImages = [
     'img/4.png',
     'img/3.png',
     'img/2.png',
-    'img/1.png'
+    'img/1.png',
+    'img/1559859056chase-paw-patrol-clipart-png-10.png',
+    'img/fa40eb0049cede8a9bdf294a141dbd0d.png',
+    'img/paw-sup22-grp-001-cgi-skye-no-cable_ver_1.png'
 ];
 
 
@@ -91,11 +94,21 @@ function handleCardClick() {
         const [card1, card2] = flippedCards;
         const match = card1.dataset.value === card2.dataset.value;
 
+        console.log(document.getElementById("hard-mode").checked);
+
         if (!match) {
             lock = true;
             setTimeout(() => {
-                card1.classList.remove("flipped");
-                card2.classList.remove("flipped");
+                if (document.getElementById("hard-mode").checked) {
+                    // В hard mode перевертаємо всі відкриті картки
+                    document.querySelectorAll(".card.flipped").forEach(card => {
+                        card.classList.remove("flipped");
+                        console.log("FLIP ALL!!!")
+                    });
+                } else {
+                    card1.classList.remove("flipped");
+                    card2.classList.remove("flipped");
+                }
                 flippedCards = [];
                 lock = false;
             }, 1000);
